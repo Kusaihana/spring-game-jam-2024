@@ -259,10 +259,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  minX: -5
-  maxX: 5
-  minZ: -5
-  maxZ: 5
+  minX: -20
+  maxX: 20
+  minZ: -20
+  maxZ: 20
 --- !u!4 &919400814
 Transform:
   m_ObjectHideFlags: 0
