@@ -7,16 +7,24 @@ public class MushroomSpawner : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _mushroomPrefabs;
     [SerializeField] private GameObject _spawnPoints;
+
+    private List<Transform> spawnPoints;
     public float spawnInterval = 2f;
 
     private void Start()
     {
+        spawnPoints = new List<Transform>();
+
+        foreach (Transform child in _spawnPoints.transform)
+        {
+            spawnPoints.Add(child);
+        }
         SpawnMushrooms();
     }
 
     void SpawnMushrooms()
     {
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i < 50; i++)
         {
             SpawnMushroom();
         }
@@ -38,10 +46,11 @@ public class MushroomSpawner : MonoBehaviour
             cumulativeProbability += mushroom.GetComponentInChildren<Mushroom>().spawnProbability;
             if (randomValue <= cumulativeProbability)
             {
-                int randomSpawnPointIndex = Random.Range(0, _spawnPoints.transform.childCount);
-                Transform spawnPoint = _spawnPoints.transform.GetChild(randomSpawnPointIndex);
+                int randomSpawnPointIndex = Random.Range(0, spawnPoints.Count);
+                Transform spawnPoint = spawnPoints[randomSpawnPointIndex];
                 Instantiate(mushroom, spawnPoint.position, Quaternion.identity);
                 Destroy(spawnPoint.gameObject);
+                spawnPoints.RemoveAt(randomSpawnPointIndex);
                 break;
             }
         }
