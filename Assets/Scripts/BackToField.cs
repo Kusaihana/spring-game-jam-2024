@@ -18,7 +18,7 @@ public class BackToField : MonoBehaviour
         {
             CanvasManager.Instance.UnloadCanvas("RestaurantCanvas");
             CanvasManager.Instance.LoadCanvas("FieldCanvas");
-            //SceneManager.LoadScene("FungiField");
+            TimerManager.Instance.StartTimer();
         }
     }
 }
