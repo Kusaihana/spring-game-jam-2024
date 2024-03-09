@@ -213,6 +213,7 @@ MonoBehaviour:
   collectionName: Bloody Fairy
   amount: 1
   isGlowing: 1
+  spawnProbability: 1
   informationPrompt: {fileID: 6030972860052507192, guid: 33009b45fb944434aba81f7e8b1ff21c, type: 3}
 --- !u!4 &5817970643226793713 stripped
 Transform:
