@@ -52,4 +52,12 @@ public class Flashlight : MonoBehaviour
             _flashLight.intensity = isFlashlightOn ? _flashLightIntensity : 0;
         }
     }
+
+    public void AddLightIntensity(float intensity)
+    {
+        var newIntensity = _flashLight.intensity + intensity;
+        newIntensity = Math.Clamp(newIntensity, 0, StartingIntensity);
+        _flashLightIntensity = newIntensity;
+        _flashLight.intensity = _flashLightIntensity;
+    }
 }

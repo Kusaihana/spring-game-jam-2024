@@ -7,6 +7,7 @@ namespace DefaultNamespace
     {
         public string collectionName;
         public int amount;
+        public bool isGlowing;
         
         public GameObject informationPrompt;
 

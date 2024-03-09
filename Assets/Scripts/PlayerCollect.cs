@@ -9,6 +9,7 @@ public class PlayerCollect : MonoBehaviour
     
     private List<ITouchable> _currentTouchedObjects = new();
     private ITouchable _currentlyDisplayedObject;
+
     public List<CollectionItem> CurrentlyHeldItems { get; set; } = new();
     void Update()
     {
@@ -23,13 +24,20 @@ public class PlayerCollect : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && _currentlyDisplayedObject is ICollectable collectable && _flashlight.isFlashlightOn)
         {
+            var mushroom = _currentlyDisplayedObject as Mushroom;
+            
+            if (mushroom != null && mushroom.isGlowing)
+            {
+                _flashlight.AddLightIntensity(1f);
+            }
+            
             _currentlyDisplayedObject.HidePrompt();
             _currentTouchedObjects.Remove(_currentlyDisplayedObject);
             _currentlyDisplayedObject = null;
             
             CollectionItem collectedItem = collectable.Collect();
             CurrentlyHeldItems.Add(collectedItem);
-            
+
             Debug.Log("Collected: " + collectedItem.Name);
         }
     }

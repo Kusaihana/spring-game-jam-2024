@@ -4,6 +4,7 @@ namespace DefaultNamespace
     {
         public string Name { get; set; }
         public int Amount{ get; set; }
+
         public CollectionItem(string collectionName, int amount)
         {
             Name = collectionName;
