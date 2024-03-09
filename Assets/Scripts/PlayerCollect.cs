@@ -31,14 +31,22 @@ public class PlayerCollect : MonoBehaviour
                 _flashlight.AddLightIntensity(1f);
             }
             
-            _currentlyDisplayedObject.HidePrompt();
-            _currentTouchedObjects.Remove(_currentlyDisplayedObject);
-            _currentlyDisplayedObject = null;
-            
-            CollectionItem collectedItem = collectable.Collect();
-            CurrentlyHeldItems.Add(collectedItem);
+            //can only collect items if the flashlight is on
+            if (mushroom != null && !mushroom.isGlowing)
+            {
+                if (_flashlight.isFlashlightOn)
+                {
+                    _currentTouchedObjects.Remove(_currentlyDisplayedObject);
+                    
+                    CollectionItem collectedItem = collectable.Collect();
+                    CurrentlyHeldItems.Add(collectedItem);
 
-            Debug.Log("Collected: " + collectedItem.Name);
+                    Debug.Log("Collected: " + collectedItem.Name);
+                }
+            }
+            
+            _currentlyDisplayedObject.HidePrompt();
+            _currentlyDisplayedObject = null;
         }
     }
 
