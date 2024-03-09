@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8925360548932389812}
-  - component: {fileID: 3642924237505876143}
   m_Layer: 0
   m_Name: Mushroom1All
   m_TagString: Untagged
@@ -31,60 +30,79 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5817970643226793713}
+  - {fileID: 8599750295719036649}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3642924237505876143
-SpriteRenderer:
+--- !u!1001 &8129782558622327042
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8925360548932389812}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 29fa6fe347a8d604bb8f0493514ea25b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 29fa6fe347a8d604bb8f0493514ea25b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 29fa6fe347a8d604bb8f0493514ea25b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 29fa6fe347a8d604bb8f0493514ea25b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 29fa6fe347a8d604bb8f0493514ea25b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 29fa6fe347a8d604bb8f0493514ea25b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 29fa6fe347a8d604bb8f0493514ea25b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 29fa6fe347a8d604bb8f0493514ea25b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 29fa6fe347a8d604bb8f0493514ea25b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 29fa6fe347a8d604bb8f0493514ea25b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 505279753531975417, guid: 29fa6fe347a8d604bb8f0493514ea25b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7d3bae46b26af51498b62d6f01cfcce2, type: 2}
+    - target: {fileID: 919132149155446097, guid: 29fa6fe347a8d604bb8f0493514ea25b, type: 3}
+      propertyPath: m_Name
+      value: mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661215666156734702, guid: 29fa6fe347a8d604bb8f0493514ea25b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7d3bae46b26af51498b62d6f01cfcce2, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 29fa6fe347a8d604bb8f0493514ea25b, type: 3}
+--- !u!4 &8599750295719036649 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 29fa6fe347a8d604bb8f0493514ea25b, type: 3}
+  m_PrefabInstance: {fileID: 8129782558622327042}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3760137332731892905}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c667b0fa6c38f4de1b3aec6674eb82c4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.51, y: 2.35}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1001 &8441377122058633362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -145,11 +163,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushroom1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 574772665187624995, guid: 9333b9f40061243b3af0581e553a1889, type: 3}
+    - {fileID: 7448793752668260260, guid: 9333b9f40061243b3af0581e553a1889, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9084932676766729649, guid: 9333b9f40061243b3af0581e553a1889, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 741382953718297242}
   m_SourcePrefab: {fileID: 100100000, guid: 9333b9f40061243b3af0581e553a1889, type: 3}
+--- !u!1 &806674186376250659 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9084932676766729649, guid: 9333b9f40061243b3af0581e553a1889, type: 3}
+  m_PrefabInstance: {fileID: 8441377122058633362}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &741382953718297242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806674186376250659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11edc8f0df342a38f1ece162d0919de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectionName: Bloody Fairy
+  amount: 1
+  informationPrompt: {fileID: 6030972860052507192, guid: 33009b45fb944434aba81f7e8b1ff21c, type: 3}
 --- !u!4 &5817970643226793713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2709019342649235043, guid: 9333b9f40061243b3af0581e553a1889, type: 3}
