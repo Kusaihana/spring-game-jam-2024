@@ -16,7 +16,9 @@ public class BackToField : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene("FungiField");
+            CanvasManager.Instance.UnloadCanvas("RestaurantCanvas");
+            CanvasManager.Instance.LoadCanvas("FieldCanvas");
+            //SceneManager.LoadScene("FungiField");
         }
     }
 }
