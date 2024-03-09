@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class RestaurantTrigger : MonoBehaviour, ITouchable
 {
+    [SerializeField] private Canvas restaurantCanvas;
+    
     public GameObject informationPrompt;
 
     private GameObject informationPromptInstance;
@@ -21,8 +23,8 @@ public class RestaurantTrigger : MonoBehaviour, ITouchable
 
     private void EnterRestaurant()
     {
-        
-        SceneManager.LoadScene("Restaurant");
+        CanvasManager.Instance.UnloadCanvas("FieldCanvas");
+        CanvasManager.Instance.LoadCanvas("RestaurantCanvas");
     }
 
     private void OnTriggerEnter(Collider other)
