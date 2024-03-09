@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CanvasManager : MonoBehaviour
@@ -10,7 +11,7 @@ public class CanvasManager : MonoBehaviour
 
     private void Awake()
     {
-        GetComponentsInChildren<Canvas>();
+        List<Canvas> canvasList = GetComponentsInChildren<Canvas>().ToList();
     }
 
     public void LoadCanvas()
