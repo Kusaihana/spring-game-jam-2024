@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +8,9 @@ public class TimerManager : MonoBehaviour
     private float _timeRemaining;
     private bool _timerStarted;
     [SerializeField] private TextMeshProUGUI _timerText;
+
+    public delegate void TimerFinished();
+    public static event TimerFinished OnTimerFinished;
     private void Awake()
     {
         if (Instance == null)
@@ -36,6 +36,7 @@ public class TimerManager : MonoBehaviour
         {
             _timerStarted = false;
             _timeRemaining = 0;
+            OnTimerFinished?.Invoke();
         }
 
         _timerText.text = "Timer: " + (int)_timeRemaining;

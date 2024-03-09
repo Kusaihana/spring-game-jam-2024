@@ -13,6 +13,15 @@ public class RestaurantTrigger : MonoBehaviour, ITouchable
 
     private bool canEnterRestaurant = false;
 
+    private void timeIsUp()
+    {
+        EnterRestaurant();
+    }
+    private void Start()
+    {
+        TimerManager.OnTimerFinished += timeIsUp;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && canEnterRestaurant)
