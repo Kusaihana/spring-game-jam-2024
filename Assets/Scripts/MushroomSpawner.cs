@@ -41,6 +41,7 @@ public class MushroomSpawner : MonoBehaviour
                 int randomSpawnPointIndex = Random.Range(0, _spawnPoints.transform.childCount);
                 Transform spawnPoint = _spawnPoints.transform.GetChild(randomSpawnPointIndex);
                 Instantiate(mushroom, spawnPoint.position, Quaternion.identity);
+                Destroy(spawnPoint.gameObject);
                 break;
             }
         }
