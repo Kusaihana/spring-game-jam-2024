@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerCollect : MonoBehaviour
 {
+    [SerializeField] private Flashlight _flashlight;
+    
     private List<ITouchable> _currentTouchedObjects = new();
     private ITouchable _currentlyDisplayedObject;
     public List<CollectionItem> CurrentlyHeldItems { get; set; } = new();
@@ -19,7 +21,7 @@ public class PlayerCollect : MonoBehaviour
 
     private void CheckCollect()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _currentlyDisplayedObject is ICollectable collectable)
+        if (Input.GetKeyDown(KeyCode.Space) && _currentlyDisplayedObject is ICollectable collectable && _flashlight.isFlashlightOn)
         {
             _currentlyDisplayedObject.HidePrompt();
             _currentTouchedObjects.Remove(_currentlyDisplayedObject);

@@ -1710,6 +1710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc4d43817ca8243df83e5938f593533d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _flashlight: {fileID: 2067789512}
 --- !u!1 &899985529
 GameObject:
   m_ObjectHideFlags: 0
