@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Restaurant.unity
-    guid: 3ec93dfd7489a41c3ab40066666662fd
-  - enabled: 1
     path: Assets/Scenes/FungiField.unity
     guid: 71a4f1c1141f947109133d800816b891
   m_configObjects: {}
