@@ -22,13 +22,17 @@ public class PlayerCollect : MonoBehaviour
 
     private void CheckCollect()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _currentlyDisplayedObject is ICollectable collectable && _flashlight.isFlashlightOn)
+        if (Input.GetKeyDown(KeyCode.Space) && _currentlyDisplayedObject is ICollectable collectable)
         {
             var mushroom = _currentlyDisplayedObject as Mushroom;
             
             if (mushroom != null && mushroom.isGlowing)
             {
                 _flashlight.AddLightIntensity(1f);
+                _currentTouchedObjects.Remove(_currentlyDisplayedObject);
+                    
+                CollectionItem collectedItem = collectable.Collect();
+                CurrentlyHeldItems.Add(collectedItem);
             }
             
             //can only collect items if the flashlight is on
