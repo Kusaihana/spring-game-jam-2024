@@ -16,6 +16,9 @@ public class RestaurantManager : MonoBehaviour
     public GameObject instructionsScreen;
     public GameObject riddleScreen;
     public GameObject resultsScreen;
+    public GameObject pictureHappyResult;
+    public GameObject pictureMehResult;
+    public GameObject pictureSadResult;
     
     public Screens currentScreen = Screens.Welcome;
     private GameObject _currentScreen;
@@ -137,43 +140,57 @@ public class RestaurantManager : MonoBehaviour
         TimerManager.OnTimerFinished -= ShowCollected;
         PlayerCollect playerCollect = playerCollectGameObject.GetComponent<PlayerCollect>();
 
-        int roundScore = calculatePlayerScore(playerCollect.CurrentlyHeldItems);
+        int roundPercentScore = CalculatePlayerScorePercent(playerCollect.CurrentlyHeldItems);
         
         TextMeshProUGUI resultsText = resultsScreen.GetComponentInChildren<TextMeshProUGUI>();
         
-        resultsText.text = BuildResultsString(playerCollect.CurrentlyHeldItems);
+        resultsText.text = BuildResultsString(playerCollect.CurrentlyHeldItems, roundPercentScore);
 
-
+        showFace(roundPercentScore);
+        
         currentScreen = Screens.Results;
         ShowResultsScreen(true);//
     }
 
-    private int calculatePlayerScore(Dictionary<MushroomType, int> playerCollectCurrentlyHeldItems)
+    private void showFace(int roundPercentScore)
+    {
+        pictureHappyResult.SetActive(false);
+        pictureMehResult.SetActive(false);
+        pictureSadResult.SetActive(false);
+        
+        //show face
+        if (roundPercentScore >= 90)
+        {
+            pictureHappyResult.SetActive(true);
+        }else if (roundPercentScore >= 50)
+        {
+            pictureMehResult.SetActive(true);
+        }
+        else
+        {
+            pictureSadResult.SetActive(true);
+        }
+    }
+    private int CalculatePlayerScorePercent(Dictionary<MushroomType, int> playerCollectCurrentlyHeldItems)
     {
         List<CollectionItem> recipeRequirements = Dish.RecipeRequirements[_currentRiddleIndex].ToList();
         int score = 0;
-        
+        int total = 0;
         foreach (var requirement in recipeRequirements)
         {
             if (playerCollectCurrentlyHeldItems.ContainsKey(requirement.Id))
             {
-                //check amount
-                if (requirement.Amount <= playerCollectCurrentlyHeldItems[requirement.Id])
-                    score += requirement.Amount;
-                else
-                    score += playerCollectCurrentlyHeldItems[requirement.Id] - requirement.Amount;
+                score += Math.Clamp(playerCollectCurrentlyHeldItems[requirement.Id], 0, requirement.Amount);
             }
-            else
-            {
-                //they missed an item completely
-                score -= requirement.Amount;
-            }
+            
+
+            total += requirement.Amount;
         }
 
-        return score;
+        return (int)((float)score/total * 100);
     }
 
-    private string BuildResultsString(Dictionary<MushroomType, int> itemsCollected)
+    private string BuildResultsString(Dictionary<MushroomType, int> itemsCollected, int roundScorePercent)
     {
         StringBuilder sb = new StringBuilder();
         sb.AppendLine("-- Mushrooms Collected --");
@@ -191,7 +208,17 @@ public class RestaurantManager : MonoBehaviour
 
         sb.AppendLine();
         sb.AppendLine("-- Mushrooms Required --");
-        sb.AppendLine(Dish.RequirementsList[_currentRiddleIndex]);
+        var recipeRequirements = Dish.RecipeRequirements[_currentRiddleIndex];
+        foreach (var recipeRequirement in recipeRequirements)
+        {
+            sb.AppendLine(recipeRequirement.Amount + " " + recipeRequirement.Id);
+        }
+
+        sb.AppendLine();
+        sb.AppendLine("-- Accuracy --");
+        sb.AppendLine(roundScorePercent + "%");
+
+        sb.AppendLine("Spacebar to get next recipe.");
         return sb.ToString();
     }
 }
