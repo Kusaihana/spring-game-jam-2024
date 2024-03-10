@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 806674186376250659}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0454, y: 0.314, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.259237, y: 1.628, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52,7 +52,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &741382953718297242
 MonoBehaviour:
@@ -67,7 +67,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  collectionName: Bloody Fairy
   amount: 1
   isGlowing: 1
   spawnProbability: 1
@@ -99,7 +98,7 @@ Transform:
   m_GameObject: {fileID: 2709265917398293613}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: -0.49999997}
-  m_LocalPosition: {x: -0, y: 0.28162786, z: 0}
+  m_LocalPosition: {x: -0, y: -0.187, z: 0}
   m_LocalScale: {x: 74, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
