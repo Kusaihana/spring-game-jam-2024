@@ -3,6 +3,7 @@
     public enum MushroomType
     {
         BloodyFairy,
-        Button
+        Button,
+        Portobello
     }
 }

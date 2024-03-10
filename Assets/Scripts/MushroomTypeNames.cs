@@ -6,8 +6,9 @@ namespace DefaultNamespace
     {
         public static Dictionary<MushroomType, string> myEnumDescriptions = new Dictionary<MushroomType, string>()
         {
-            { MushroomType.BloodyFairy, "Bloody Fairy" },
-            { MushroomType.Button, "Button" }
+            { MushroomType.BloodyFairy, "Bleeding Fairy Helmet Mushroom" },
+            { MushroomType.Button, "Button Mushroom" },
+            { MushroomType.Portobello, "Portobello Mushroom" }
         };
     }
 }
