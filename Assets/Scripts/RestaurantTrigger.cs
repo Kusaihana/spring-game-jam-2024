@@ -11,7 +11,8 @@ public class RestaurantTrigger : MonoBehaviour, ITouchable
 
     private void TimeIsUp()
     {
-        EnterRestaurant();
+        if(RestaurantManager.Instance.currentScreen == Screens.Field)
+            EnterRestaurant();
     }
     private void Start()
     {
@@ -28,8 +29,7 @@ public class RestaurantTrigger : MonoBehaviour, ITouchable
 
     private void EnterRestaurant()
     {
-        CanvasManager.Instance.UnloadCanvas("FieldCanvas");
-        CanvasManager.Instance.LoadCanvas("RestaurantCanvas");
+        RestaurantManager.Instance.ShowCollected();
     }
 
     private void OnTriggerEnter(Collider other)
