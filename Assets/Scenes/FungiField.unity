@@ -2475,6 +2475,7 @@ MonoBehaviour:
   - {fileID: 3760137332731892905, guid: c6e08132ab0584582a8750ee8d97bb4b, type: 3}
   - {fileID: 8782549158762909907, guid: fbcba6dae98da4e5a954c5f493ca3613, type: 3}
   - {fileID: 8782549158762909907, guid: ef16ccc6b42c1224fb9b87fbdae684fe, type: 3}
+  - {fileID: 8782549158762909907, guid: 9180b45abfe3ca74eb74f5233743b3ec, type: 3}
   _spawnPoints: {fileID: 835550713}
   spawnInterval: 2
 --- !u!1 &1096690780
