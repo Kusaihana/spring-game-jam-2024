@@ -30,6 +30,7 @@ public class Flashlight : MonoBehaviour
         else
         {
             _flashLight.intensity = 0f;
+            isFlashlightOn = false;
         }
         
         if (isFlashlightOn)
