@@ -12,7 +12,7 @@ namespace DefaultNamespace
         //each recipe is one line
         public static CollectionItem[][] RecipeRequirements =
         {
-            new[] { new CollectionItem("button", 1), new CollectionItem("Bloody Fairy", 2) },
+            new[] { new CollectionItem(MushroomType.Button, 1), new CollectionItem(MushroomType.BloodyFairy, 2) },
         };
     }
 }

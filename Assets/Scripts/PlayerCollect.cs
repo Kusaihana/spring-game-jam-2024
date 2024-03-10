@@ -10,7 +10,7 @@ public class PlayerCollect : MonoBehaviour
     private List<ITouchable> _currentTouchedObjects = new();
     private ITouchable _currentlyDisplayedObject;
 
-    public Dictionary<string, int> CurrentlyHeldItems { get; set; } = new();
+    public Dictionary<MushroomType, int> CurrentlyHeldItems { get; set; } = new();
 
     void Update()
     {
@@ -33,10 +33,10 @@ public class PlayerCollect : MonoBehaviour
                 _currentTouchedObjects.Remove(_currentlyDisplayedObject);
                     
                 CollectionItem collectedItem = collectable.Collect();
-                if (CurrentlyHeldItems.ContainsKey(collectedItem.Name))
-                    CurrentlyHeldItems[collectedItem.Name] += collectedItem.Amount;
+                if (CurrentlyHeldItems.ContainsKey(collectedItem.Id))
+                    CurrentlyHeldItems[collectedItem.Id] += collectedItem.Amount;
                 else
-                    CurrentlyHeldItems.Add(collectedItem.Name, collectedItem.Amount);
+                    CurrentlyHeldItems.Add(collectedItem.Id, collectedItem.Amount);
             }
             
             //can only collect items if the flashlight is on
@@ -47,12 +47,12 @@ public class PlayerCollect : MonoBehaviour
                     _currentTouchedObjects.Remove(_currentlyDisplayedObject);
                     
                     CollectionItem collectedItem = collectable.Collect();
-                    if (CurrentlyHeldItems.ContainsKey(collectedItem.Name))
-                        CurrentlyHeldItems[collectedItem.Name] += collectedItem.Amount;
+                    if (CurrentlyHeldItems.ContainsKey(collectedItem.Id))
+                        CurrentlyHeldItems[collectedItem.Id] += collectedItem.Amount;
                     else
-                        CurrentlyHeldItems.Add(collectedItem.Name, collectedItem.Amount);
+                        CurrentlyHeldItems.Add(collectedItem.Id, collectedItem.Amount);
 
-                    Debug.Log("Collected: " + collectedItem.Name);
+                    Debug.Log("Collected: " + collectedItem.Id);
                 }
             }
             

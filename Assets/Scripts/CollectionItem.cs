@@ -2,12 +2,12 @@ namespace DefaultNamespace
 {
     public class CollectionItem
     {
-        public string Name { get; set; }
+        public MushroomType Id { get; set; }
         public int Amount{ get; set; }
 
-        public CollectionItem(string collectionName, int amount)
+        public CollectionItem(MushroomType collectionId, int amount)
         {
-            Name = collectionName;
+            Id = collectionId;
             Amount = amount;
         }
     }

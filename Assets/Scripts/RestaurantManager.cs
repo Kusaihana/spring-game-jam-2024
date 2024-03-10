@@ -148,20 +148,20 @@ public class RestaurantManager : MonoBehaviour
         ShowResultsScreen(true);//
     }
 
-    private int calculatePlayerScore(Dictionary<string, int> playerCollectCurrentlyHeldItems)
+    private int calculatePlayerScore(Dictionary<MushroomType, int> playerCollectCurrentlyHeldItems)
     {
         List<CollectionItem> recipeRequirements = Dish.RecipeRequirements[_currentRiddleIndex].ToList();
         int score = 0;
         
         foreach (var requirement in recipeRequirements)
         {
-            if (playerCollectCurrentlyHeldItems.ContainsKey(requirement.Name))
+            if (playerCollectCurrentlyHeldItems.ContainsKey(requirement.Id))
             {
                 //check amount
-                if (requirement.Amount <= playerCollectCurrentlyHeldItems[requirement.Name])
+                if (requirement.Amount <= playerCollectCurrentlyHeldItems[requirement.Id])
                     score += requirement.Amount;
                 else
-                    score += playerCollectCurrentlyHeldItems[requirement.Name] - requirement.Amount;
+                    score += playerCollectCurrentlyHeldItems[requirement.Id] - requirement.Amount;
             }
             else
             {
@@ -173,7 +173,7 @@ public class RestaurantManager : MonoBehaviour
         return score;
     }
 
-    private string BuildResultsString(Dictionary<string, int> itemsCollected)
+    private string BuildResultsString(Dictionary<MushroomType, int> itemsCollected)
     {
         StringBuilder sb = new StringBuilder();
         sb.AppendLine("-- Mushrooms Collected --");
@@ -185,7 +185,7 @@ public class RestaurantManager : MonoBehaviour
         {
             foreach (var item in itemsCollected)
             {
-                sb.AppendLine(item.Value + " " + item.Key);
+                sb.AppendLine(item.Value + " " + MushroomTypeNames.myEnumDescriptions[item.Key]);
             }
         }
 

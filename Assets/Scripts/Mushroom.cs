@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace DefaultNamespace
 {
     public class Mushroom : MonoBehaviour, ITouchable, ICollectable
     {
-        public string collectionName;
+        public MushroomType type;
         public int amount;
         public bool isGlowing;
         public float spawnProbability;
@@ -16,6 +17,8 @@ namespace DefaultNamespace
 
         public void ShowPrompt()
         {
+            TextMeshProUGUI textField = informationPrompt.GetComponentInChildren<TextMeshProUGUI>();
+            textField.text = MushroomTypeNames.myEnumDescriptions[type];
             informationPromptInstance = InfoDisplay.Instance.AddUIElement(informationPrompt);
         }
 
@@ -28,7 +31,7 @@ namespace DefaultNamespace
         public CollectionItem Collect()
         {
             Destroy(gameObject.transform.parent.gameObject);
-            return new CollectionItem(collectionName, amount);
+            return new CollectionItem(type, amount);
         }
     }
 }
