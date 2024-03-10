@@ -13,11 +13,6 @@ namespace DefaultNamespace
             "In the urban jungle, where rebels roam,\nA burger bold, a punk's true home.\nWith button mushrooms, plump and round,\nGather them up, for a burger renowned.",
             "In the undergrowth, where shadows dance,\nFind the fungi, take a chance.\nWith portobello, button, or more to choose,\nGather mushrooms, a handful to infuse.",
         };
-        
-        //TO BE REMOVED
-        public static readonly string[] RequirementsList = {
-            "2 peach mushrooms"
-        };
 
         //each recipe is one line
         public static CollectionItem[][] RecipeRequirements =
