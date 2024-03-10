@@ -145,7 +145,7 @@ public class RestaurantManager : MonoBehaviour
 
 
         currentScreen = Screens.Results;
-        ShowResultsScreen(true);
+        ShowResultsScreen(true);//
     }
 
     private int calculatePlayerScore(Dictionary<string, int> playerCollectCurrentlyHeldItems)
