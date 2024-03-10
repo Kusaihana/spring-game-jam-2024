@@ -1,30 +1,26 @@
-using System;
 using DefaultNamespace;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class RestaurantTrigger : MonoBehaviour, ITouchable
 {
-    [SerializeField] private Canvas restaurantCanvas;
-    
     public GameObject informationPrompt;
 
-    private GameObject informationPromptInstance;
+    private GameObject _informationPromptInstance;
 
-    private bool canEnterRestaurant = false;
+    private bool _canEnterRestaurant = false;
 
-    private void timeIsUp()
+    private void TimeIsUp()
     {
         EnterRestaurant();
     }
     private void Start()
     {
-        TimerManager.OnTimerFinished += timeIsUp;
+        TimerManager.OnTimerFinished += TimeIsUp;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && canEnterRestaurant)
+        if (Input.GetKeyDown(KeyCode.Space) && _canEnterRestaurant)
         {
             EnterRestaurant();
         }
@@ -41,8 +37,7 @@ public class RestaurantTrigger : MonoBehaviour, ITouchable
         if (!other.tag.Equals("PlayerDetectionSphere"))
             return;
 
-        canEnterRestaurant = true;
-        Debug.Log("in restaurant zone");
+        _canEnterRestaurant = true;
     }
     
     private void OnTriggerExit(Collider other)
@@ -50,18 +45,17 @@ public class RestaurantTrigger : MonoBehaviour, ITouchable
         if (!other.tag.Equals("PlayerDetectionSphere"))
             return;
 
-        canEnterRestaurant = false;
-        Debug.Log("out of restaurant zone");
+        _canEnterRestaurant = false;
     }
 
     public void ShowPrompt()
     {
-        informationPromptInstance = InfoDisplay.Instance.AddUIElement(informationPrompt);
+        _informationPromptInstance = InfoDisplay.Instance.AddUIElement(informationPrompt);
     }
 
     public void HidePrompt()
     {
-        if(informationPromptInstance)
-            Destroy(informationPromptInstance);
+        if(_informationPromptInstance)
+            Destroy(_informationPromptInstance);
     }
 }

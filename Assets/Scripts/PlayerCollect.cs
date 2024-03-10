@@ -10,7 +10,8 @@ public class PlayerCollect : MonoBehaviour
     private List<ITouchable> _currentTouchedObjects = new();
     private ITouchable _currentlyDisplayedObject;
 
-    public List<CollectionItem> CurrentlyHeldItems { get; set; } = new();
+    public Dictionary<string, int> CurrentlyHeldItems { get; set; } = new();
+
     void Update()
     {
         //collect
@@ -32,7 +33,10 @@ public class PlayerCollect : MonoBehaviour
                 _currentTouchedObjects.Remove(_currentlyDisplayedObject);
                     
                 CollectionItem collectedItem = collectable.Collect();
-                CurrentlyHeldItems.Add(collectedItem);
+                if (CurrentlyHeldItems.ContainsKey(collectedItem.Name))
+                    CurrentlyHeldItems[collectedItem.Name] += collectedItem.Amount;
+                else
+                    CurrentlyHeldItems.Add(collectedItem.Name, collectedItem.Amount);
             }
             
             //can only collect items if the flashlight is on
@@ -43,7 +47,10 @@ public class PlayerCollect : MonoBehaviour
                     _currentTouchedObjects.Remove(_currentlyDisplayedObject);
                     
                     CollectionItem collectedItem = collectable.Collect();
-                    CurrentlyHeldItems.Add(collectedItem);
+                    if (CurrentlyHeldItems.ContainsKey(collectedItem.Name))
+                        CurrentlyHeldItems[collectedItem.Name] += collectedItem.Amount;
+                    else
+                        CurrentlyHeldItems.Add(collectedItem.Name, collectedItem.Amount);
 
                     Debug.Log("Collected: " + collectedItem.Name);
                 }

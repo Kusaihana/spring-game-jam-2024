@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.004565228, g: 0.0032340875, b: 0.005344173, a: 1}
+  m_IndirectSpecularColor: {r: 0.0045652194, g: 0.003234084, b: 0.0053441604, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3402,6 +3402,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 835550714}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1567451418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1567451420}
+  - component: {fileID: 1567451419}
+  m_Layer: 0
+  m_Name: RestaurantManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1567451419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567451418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64fcd3fc8f754e3aa2e487798dd5219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerCollectGameObject: {fileID: 877672922}
+  OrderText: {fileID: 349188935}
+--- !u!4 &1567451420
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567451418}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 175.75339, y: 73.57424, z: 3308.1792}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1568547021
 GameObject:
   m_ObjectHideFlags: 0
@@ -3820,7 +3866,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c5b26060a994091adedf8fdba2c65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restaurantCanvas: {fileID: 0}
   informationPrompt: {fileID: 6030972860052507192, guid: 75333ce1230764be59fe165af052f051, type: 3}
 --- !u!65 &1855745604
 BoxCollider:
@@ -4536,3 +4581,4 @@ SceneRoots:
   - {fileID: 648923169}
   - {fileID: 835550714}
   - {fileID: 1580668175}
+  - {fileID: 1567451420}
