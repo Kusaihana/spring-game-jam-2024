@@ -21,8 +21,9 @@ public class RestaurantTrigger : MonoBehaviour, ITouchable
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _canEnterRestaurant)
+        if (Input.GetKeyDown(KeyCode.Space) && _canEnterRestaurant && RestaurantManager.Instance.currentScreen == Screens.Field)
         {
+            _canEnterRestaurant = false;
             EnterRestaurant();
         }
     }

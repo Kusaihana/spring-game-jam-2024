@@ -6,6 +6,7 @@ namespace DefaultNamespace
         Riddle,
         Field,
         Instructions,
-        Results
+        Results,
+        End
     }
 }

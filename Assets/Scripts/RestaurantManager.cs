@@ -16,9 +16,12 @@ public class RestaurantManager : MonoBehaviour
     public GameObject instructionsScreen;
     public GameObject riddleScreen;
     public GameObject resultsScreen;
+    public GameObject endScreen;
     public GameObject pictureHappyResult;
     public GameObject pictureMehResult;
     public GameObject pictureSadResult;
+    public GameObject player;
+    public GameObject playerSpawn;
     
     public Screens currentScreen = Screens.Welcome;
     private GameObject _currentScreen;
@@ -64,6 +67,23 @@ public class RestaurantManager : MonoBehaviour
                     TransitionToNextScreen(Screens.Field);
                 }
                 break;
+            case Screens.Results:
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    
+                    _currentRiddleIndex++;
+                    if (_currentRiddleIndex < Dish.RecipeRequirements.Length)
+                    {
+                        //no more riddles...end game
+                        TransitionToNextScreen(Screens.Riddle);
+                    }
+                    else
+                    {
+                        TransitionToNextScreen(Screens.End);
+                    }
+                }
+
+                break;
         }
     }
 
@@ -80,6 +100,9 @@ public class RestaurantManager : MonoBehaviour
             case Screens.Riddle:
                 ShowRiddleScreen(false);
                 break;
+            case Screens.Results:
+                ShowResultsScreen(false);
+                break;
         }
         switch (nextScreen)
         {
@@ -95,12 +118,20 @@ public class RestaurantManager : MonoBehaviour
             case Screens.Field:
                 GoToField();
                 break;
+            case Screens.End:
+                ShowEndScreen(true);
+                break;
            
         }
 
         currentScreen = nextScreen;
     }
-    
+
+    private void ShowEndScreen(bool show)
+    {
+        endScreen.SetActive(show);
+    }
+
     private void ShowWelcomeScreen(bool show)
     {
         welcomeScreen.SetActive(show);
@@ -126,6 +157,8 @@ public class RestaurantManager : MonoBehaviour
     }
     private void GoToField()
     {
+        player.transform.position = playerSpawn.transform.position;
+        
         TimerManager.OnTimerFinished += ShowCollected;
         CanvasManager.Instance.UnloadCanvas("RestaurantCanvas");
         CanvasManager.Instance.LoadCanvas("FieldCanvas");
@@ -150,6 +183,9 @@ public class RestaurantManager : MonoBehaviour
         
         currentScreen = Screens.Results;
         ShowResultsScreen(true);//
+        
+        
+        
     }
 
     private void showFace(int roundPercentScore)
