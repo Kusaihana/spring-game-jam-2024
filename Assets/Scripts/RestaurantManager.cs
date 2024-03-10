@@ -17,9 +17,6 @@ public class RestaurantManager : MonoBehaviour
     public GameObject riddleScreen;
     public GameObject resultsScreen;
     public GameObject endScreen;
-    public GameObject pictureHappyResult;
-    public GameObject pictureMehResult;
-    public GameObject pictureSadResult;
     public GameObject player;
     public GameObject playerSpawn;
     
@@ -178,8 +175,6 @@ public class RestaurantManager : MonoBehaviour
         TextMeshProUGUI resultsText = resultsScreen.GetComponentInChildren<TextMeshProUGUI>();
         
         resultsText.text = BuildResultsString(playerCollect.CurrentlyHeldItems, roundPercentScore);
-
-        showFace(roundPercentScore);
         
         currentScreen = Screens.Results;
         ShowResultsScreen(true);//
@@ -187,26 +182,7 @@ public class RestaurantManager : MonoBehaviour
         
         
     }
-
-    private void showFace(int roundPercentScore)
-    {
-        pictureHappyResult.SetActive(false);
-        pictureMehResult.SetActive(false);
-        pictureSadResult.SetActive(false);
-        
-        //show face
-        if (roundPercentScore >= 90)
-        {
-            pictureHappyResult.SetActive(true);
-        }else if (roundPercentScore >= 50)
-        {
-            pictureMehResult.SetActive(true);
-        }
-        else
-        {
-            pictureSadResult.SetActive(true);
-        }
-    }
+    
     private int CalculatePlayerScorePercent(Dictionary<MushroomType, int> playerCollectCurrentlyHeldItems)
     {
         List<CollectionItem> recipeRequirements = Dish.RecipeRequirements[_currentRiddleIndex].ToList();

@@ -70,7 +70,7 @@ MonoBehaviour:
   amount: 1
   isGlowing: 1
   spawnProbability: 2
-  informationPrompt: {fileID: 6030972860052507192, guid: 33009b45fb944434aba81f7e8b1ff21c, type: 3}
+  informationPrompt: {fileID: 6030972860052507192, guid: 75333ce1230764be59fe165af052f051, type: 3}
 --- !u!1 &4417880099841261816
 GameObject:
   m_ObjectHideFlags: 0
